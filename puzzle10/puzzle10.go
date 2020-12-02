@@ -1,7 +1,7 @@
 package puzzle10
 
 import (
-	"strconv"
+	
 	"github.com/crabbey/aoc2020/common"
 	"github.com/davecgh/go-spew/spew"
 )
@@ -15,15 +15,19 @@ type Puzzle10 struct {
 func (p Puzzle10) Part1(input common.AoCInput, output *common.AoCSolution) (*common.AoCSolution, error) {
 	i, err := input.Read()
 	if err != nil {
-		return output, err
+		spew.Dump(i)
+	return output, err
 	}
+	spew.Dump(i)
 	return output, nil
 }
 
 func (p Puzzle10) Part2(input common.AoCInput, output *common.AoCSolution) (*common.AoCSolution, error) {
 	i, err := input.Read()
 	if err != nil {
-		return output, err
+		spew.Dump(i)
+	return output, err
 	}
+	spew.Dump(i)
 	return output, nil
 }

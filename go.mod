@@ -5,6 +5,30 @@ go 1.14
 require (
 	github.com/crabbey/aoc2020/common v0.0.0-00010101000000-000000000000 // indirect
 	github.com/crabbey/aoc2020/puzzle1 v0.0.0-00010101000000-000000000000 // indirect
+	github.com/crabbey/aoc2020/puzzle10 v0.0.0-00010101000000-000000000000 // indirect
+	github.com/crabbey/aoc2020/puzzle11 v0.0.0-00010101000000-000000000000 // indirect
+	github.com/crabbey/aoc2020/puzzle12 v0.0.0-00010101000000-000000000000 // indirect
+	github.com/crabbey/aoc2020/puzzle13 v0.0.0-00010101000000-000000000000 // indirect
+	github.com/crabbey/aoc2020/puzzle14 v0.0.0-00010101000000-000000000000 // indirect
+	github.com/crabbey/aoc2020/puzzle15 v0.0.0-00010101000000-000000000000 // indirect
+	github.com/crabbey/aoc2020/puzzle16 v0.0.0-00010101000000-000000000000 // indirect
+	github.com/crabbey/aoc2020/puzzle17 v0.0.0-00010101000000-000000000000 // indirect
+	github.com/crabbey/aoc2020/puzzle18 v0.0.0-00010101000000-000000000000 // indirect
+	github.com/crabbey/aoc2020/puzzle19 v0.0.0-00010101000000-000000000000 // indirect
+	github.com/crabbey/aoc2020/puzzle2 v0.0.0-00010101000000-000000000000 // indirect
+	github.com/crabbey/aoc2020/puzzle20 v0.0.0-00010101000000-000000000000 // indirect
+	github.com/crabbey/aoc2020/puzzle21 v0.0.0-00010101000000-000000000000 // indirect
+	github.com/crabbey/aoc2020/puzzle22 v0.0.0-00010101000000-000000000000 // indirect
+	github.com/crabbey/aoc2020/puzzle23 v0.0.0-00010101000000-000000000000 // indirect
+	github.com/crabbey/aoc2020/puzzle24 v0.0.0-00010101000000-000000000000 // indirect
+	github.com/crabbey/aoc2020/puzzle25 v0.0.0-00010101000000-000000000000 // indirect
+	github.com/crabbey/aoc2020/puzzle3 v0.0.0-00010101000000-000000000000 // indirect
+	github.com/crabbey/aoc2020/puzzle4 v0.0.0-00010101000000-000000000000 // indirect
+	github.com/crabbey/aoc2020/puzzle5 v0.0.0-00010101000000-000000000000 // indirect
+	github.com/crabbey/aoc2020/puzzle6 v0.0.0-00010101000000-000000000000 // indirect
+	github.com/crabbey/aoc2020/puzzle7 v0.0.0-00010101000000-000000000000 // indirect
+	github.com/crabbey/aoc2020/puzzle8 v0.0.0-00010101000000-000000000000 // indirect
+	github.com/crabbey/aoc2020/puzzle9 v0.0.0-00010101000000-000000000000 // indirect
 	github.com/davecgh/go-spew v1.1.1 // indirect
 	github.com/urfave/cli/v2 v2.3.0 // indirect
 )
