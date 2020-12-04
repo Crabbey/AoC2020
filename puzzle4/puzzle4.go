@@ -32,22 +32,10 @@ type Passport struct {
 }
 
 func (p *Passport) IsValid() bool {
-	if p.BirthYear == "" {
+	if p.BirthYear == "" || p.IssueYear == "" || p.ExpirationYear == "" {
 		return false
 	}
-	if p.IssueYear == "" {
-		return false
-	}
-	if p.ExpirationYear == "" {
-		return false
-	}
-	if p.Height == "" {
-		return false
-	}
-	if p.HairColour == "" {
-		return false
-	}
-	if p.EyeColour == "" {
+	if p.Height == "" || p.HairColour == "" || p.EyeColour == "" {
 		return false
 	}
 	if p.PassportID == "" {
@@ -90,22 +78,10 @@ func (p *Passport) IsValidHeight() bool {
 }
 
 func (p *Passport) IsStrictValid() bool {
-	if !Between(p.BirthYear, 1920, 2002) {
+	if !Between(p.BirthYear, 1920, 2002) || !Between(p.IssueYear, 2010, 2020) || !Between(p.ExpirationYear, 2020, 2030) {
 		return false
 	}
-	if !Between(p.IssueYear, 2010, 2020) {
-		return false
-	}
-	if !Between(p.ExpirationYear, 2020, 2030)
-		return false
-	}
-	if !p.IsValidHeight() {
-		return false
-	}
-	if !p.IsValidHairColour() {
-		return false
-	}
-	if !p.IsValidEyeColour() {
+	if !p.IsValidHeight() || !p.IsValidHairColour() ||!p.IsValidEyeColour() {
 		return false
 	}
 	if !p.IsValidPassportID() {
