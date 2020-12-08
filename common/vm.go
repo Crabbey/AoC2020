@@ -15,6 +15,7 @@ type VM struct {
 	MemSpace []VMInstruction
 	Accumulator int
 	Position int
+	Terminated bool
 }
 
 type VMInstruction struct {
@@ -37,11 +38,31 @@ func (i *VMInstruction) Execute() {
 	case "acc":
 		i.VM.Accumulator += i.ParseArg(0)
 		i.VM.Position++
+		// fmt.Printf("ACC += %v, %v\n", i.ParseArg(0), i.VM.Accumulator)
+	default:
+		panic("Unknown instruction")
+	}
+}
+
+func (v *VM) Reset() {
+	v.Accumulator = 0
+	v.Position = 0
+}
+
+func (v *VM) LoadMemspace(input []string) {
+	v.MemSpace = nil
+	for _, line := range input {
+		newInstruction := ReadInstruction(line, v)
+		v.MemSpace = append(v.MemSpace, newInstruction)
 	}
 }
 
 func (v *VM) Step() {
-	fmt.Printf("Executing position %v\n", v.Position)
+	if v.Position >= len(v.MemSpace) {
+		// End of program, terminate.
+		v.Terminated = true
+		return
+	}
 	v.MemSpace[v.Position].Execute()
 }
 
@@ -57,9 +78,6 @@ func ReadInstruction(input string, vm *VM) VMInstruction {
 
 func NewVM(input []string) *VM {
 	ret := VM{}
-	for _, line := range input {
-		newInstruction := ReadInstruction(line, &ret)
-		ret.MemSpace = append(ret.MemSpace, newInstruction)
-	}
+	ret.LoadMemspace(input)
 	return &ret
 }
