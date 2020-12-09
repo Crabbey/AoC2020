@@ -109,11 +109,13 @@ var cmdSinglePuzzle = cli.Command{
 	},
 }
 
-func GetInput(c *cli.Context, puzzleid string) common.AoCInput {
+func GetInput(c *cli.Context, puzzleid, partid string) common.AoCInput {
 	iname := c.String("inputname")
 	ret := common.AoCInput{
 		Path: "puzzle"+puzzleid,
 		InputFile: iname,
+		Puzzle: puzzleid,
+		Part: partid,
 	}
 	if iname == "" {
 		ret.InputFile = "input.txt"
@@ -122,9 +124,7 @@ func GetInput(c *cli.Context, puzzleid string) common.AoCInput {
 }
 
 func CallPuzzlePart(c *cli.Context, puzzleid string, partid string) (*common.AoCSolution, error) {
-	input := GetInput(c, puzzleid)
-	solution := common.NewSolution(puzzleid, partid)
-
+	input := GetInput(c, puzzleid, partid)
 	var puzzle common.AoCPuzzle
 	switch puzzleid {
 	case "1":
@@ -182,9 +182,9 @@ func CallPuzzlePart(c *cli.Context, puzzleid string, partid string) (*common.AoC
 	}
 	switch partid {
 	case "1":
-		return puzzle.Part1(input, solution)
+		return puzzle.Part1(input)
 	case "2":
-		return puzzle.Part2(input, solution)
+		return puzzle.Part2(input)
 	default:
 		return nil, fmt.Errorf("Unknown part id %v", partid)
 	}

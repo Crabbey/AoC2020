@@ -13,12 +13,13 @@ type Puzzle8 struct {
 
 }
 
-func (p Puzzle8) Part1(input common.AoCInput, output *common.AoCSolution) (*common.AoCSolution, error) {
+func (p Puzzle8) Part1(input common.AoCInput) (*common.AoCSolution, error) {
 	i, err := input.Read()
 	if err != nil {
 		spew.Dump(i)
-		return output, err
+		return nil, err
 	}
+	output := common.NewSolution(input, "")
 	VM := common.NewVM(i)
 	var positions []int
 MainLoop:
@@ -36,12 +37,13 @@ MainLoop:
 	return output, nil
 }
 
-func (p Puzzle8) Part2(input common.AoCInput, output *common.AoCSolution) (*common.AoCSolution, error) {
+func (p Puzzle8) Part2(input common.AoCInput) (*common.AoCSolution, error) {
 	i, err := input.Read()
 	if err != nil {
 		spew.Dump(i)
-		return output, err
+		return nil, err
 	}
+	output := common.NewSolution(input, "")
 	VM := common.NewVM(i)
 IncLoop:
 	for repl := 0; repl <= len(i) ; repl++ {

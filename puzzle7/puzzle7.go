@@ -91,12 +91,13 @@ ParentLoop:
 	return total, countedBags
 }
 
-func (p Puzzle7) Part1(input common.AoCInput, output *common.AoCSolution) (*common.AoCSolution, error) {
+func (p Puzzle7) Part1(input common.AoCInput) (*common.AoCSolution, error) {
 	i, err := input.Read()
 	if err != nil {
 		spew.Dump(i)
-		return output, err
+		return nil, err
 	}
+	output := common.NewSolution(input, "")
 	bags := ParseInput(i)
 	var emptyBags []string
 	total, _ := bags["shiny gold bag"].CountParentsRecursive(emptyBags)
@@ -104,12 +105,13 @@ func (p Puzzle7) Part1(input common.AoCInput, output *common.AoCSolution) (*comm
 	return output, nil
 }
 
-func (p Puzzle7) Part2(input common.AoCInput, output *common.AoCSolution) (*common.AoCSolution, error) {
+func (p Puzzle7) Part2(input common.AoCInput) (*common.AoCSolution, error) {
 	i, err := input.Read()
 	if err != nil {
 		spew.Dump(i)
-		return output, err
+		return nil, err
 	}
+	output := common.NewSolution(input, "")
 	bags := ParseInput(i)
 	total := bags["shiny gold bag"].CountChildrenRecursive()
 	output.Text = fmt.Sprintf("There are %v bags contained within your shiny gold bag", total)

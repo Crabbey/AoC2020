@@ -58,11 +58,12 @@ func (p Puzzle2) Parse(input string) *Puz2Entry {
 	return &entry
 }
 
-func (p Puzzle2) Part1(input common.AoCInput, output *common.AoCSolution) (*common.AoCSolution, error) {
+func (p Puzzle2) Part1(input common.AoCInput) (*common.AoCSolution, error) {
 	i, err := input.Read()
 	if err != nil {
-		return output, err
+		return nil, err
 	}
+	output := common.NewSolution(input, "")
 	count := 0
 	for _, line := range i {
 		entry := p.Parse(line)
@@ -74,11 +75,12 @@ func (p Puzzle2) Part1(input common.AoCInput, output *common.AoCSolution) (*comm
 	return output, nil
 }
 
-func (p Puzzle2) Part2(input common.AoCInput, output *common.AoCSolution) (*common.AoCSolution, error) {
+func (p Puzzle2) Part2(input common.AoCInput) (*common.AoCSolution, error) {
 	i, err := input.Read()
 	if err != nil {
-		return output, err
+		return nil, err
 	}
+	output := common.NewSolution(input, "")
 	count := 0
 	for _, line := range i {
 		entry := p.Parse(line)

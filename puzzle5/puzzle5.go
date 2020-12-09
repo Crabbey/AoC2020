@@ -49,12 +49,13 @@ func (p Puzzle5) LoadSeats(input []string) []Seat {
 	return ret
 }
 
-func (p Puzzle5) Part1(input common.AoCInput, output *common.AoCSolution) (*common.AoCSolution, error) {
+func (p Puzzle5) Part1(input common.AoCInput) (*common.AoCSolution, error) {
 	i, err := input.Read()
 	if err != nil {
 		spew.Dump(i)
-		return output, err
+		return nil, err
 	}
+	output := common.NewSolution(input, "")
 	seats := p.LoadSeats(i)
 	highest := 0
 	for _, seat := range seats {
@@ -66,12 +67,13 @@ func (p Puzzle5) Part1(input common.AoCInput, output *common.AoCSolution) (*comm
 	return output, nil
 }
 
-func (p Puzzle5) Part2(input common.AoCInput, output *common.AoCSolution) (*common.AoCSolution, error) {
+func (p Puzzle5) Part2(input common.AoCInput) (*common.AoCSolution, error) {
 	i, err := input.Read()
 	if err != nil {
 		spew.Dump(i)
-		return output, err
+		return nil, err
 	}
+	output := common.NewSolution(input, "")
 
 	seats := p.LoadSeats(i)
 	var seatUids []int

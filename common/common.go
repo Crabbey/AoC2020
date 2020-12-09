@@ -9,29 +9,32 @@ import (
 type AoCInput struct {
 	Path string
 	InputFile string
+	Puzzle string
+	Part string
 }
 
 type AoCSolution struct {
-	Puzzle string
-	Part string
+	Input AoCInput
 	Text string
 }
 
 type AoCPuzzle interface {
-	Part1(input AoCInput, output *AoCSolution) (*AoCSolution, error)
-	Part2(input AoCInput, output *AoCSolution) (*AoCSolution, error)
+	Part1(input AoCInput) (*AoCSolution, error)
+	Part2(input AoCInput) (*AoCSolution, error)
 }
 
-func NewSolution(puzzleid string, partid string) (*AoCSolution) {
+func NewSolution(puzzleinput AoCInput, input string) (*AoCSolution) {
+	if input == "" {
+		input = "No solution found"
+	}
 	return &AoCSolution{
-		Puzzle: puzzleid,
-		Part: partid,
-		Text: "No solution found",
+		Input: puzzleinput,
+		Text: input,
 	}
 }
 
 func (a *AoCSolution) Print() {
-	fmt.Printf("Puzzle %v Part %v Solution: %v\n", a.Puzzle, a.Part, a.Text)
+	fmt.Printf("Puzzle %v Part %v Solution: %v\n", a.Input.Puzzle, a.Input.Part, a.Text)
 }
 
 func (a *AoCInput) Default(def string) {

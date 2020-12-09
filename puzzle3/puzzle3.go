@@ -75,22 +75,24 @@ func (p Puzzle3) ParseMap(input []string) (*Map) {
 	return &ret
 }
 
-func (p Puzzle3) Part1(input common.AoCInput, output *common.AoCSolution) (*common.AoCSolution, error) {
+func (p Puzzle3) Part1(input common.AoCInput) (*common.AoCSolution, error) {
 	i, err := input.Read()
 	if err != nil {
-		return output, err
+		return nil, err
 	}
+	output := common.NewSolution(input, "")
 	inputMap := p.ParseMap(i)
 	countTrees := inputMap.CountTrees(3, 1)
 	output.Text = "There are " + strconv.Itoa(countTrees) + " trees"
 	return output, nil
 }
 
-func (p Puzzle3) Part2(input common.AoCInput, output *common.AoCSolution) (*common.AoCSolution, error) {
+func (p Puzzle3) Part2(input common.AoCInput) (*common.AoCSolution, error) {
 	i, err := input.Read()
 	if err != nil {
-		return output, err
+		return nil, err
 	}
+	output := common.NewSolution(input, "")
 	inputMap := p.ParseMap(i)
 	total := inputMap.CountTrees(1, 1)
 	total *= inputMap.CountTrees(3, 1)

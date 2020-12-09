@@ -12,11 +12,12 @@ type Puzzle1 struct {
 
 }
 
-func (p Puzzle1) Part1(input common.AoCInput, output *common.AoCSolution) (*common.AoCSolution, error) {
+func (p Puzzle1) Part1(input common.AoCInput) (*common.AoCSolution, error) {
 	i, err := input.Read()
 	if err != nil {
-		return output, err
+		return nil, err
 	}
+	output := common.NewSolution(input, "")
 	for a, input1 := range i {
 		x, _ := strconv.Atoi(input1)
 		for b, input2 := range i {
@@ -30,11 +31,12 @@ func (p Puzzle1) Part1(input common.AoCInput, output *common.AoCSolution) (*comm
 	return output, nil
 }
 
-func (p Puzzle1) Part2(input common.AoCInput, output *common.AoCSolution) (*common.AoCSolution, error) {
+func (p Puzzle1) Part2(input common.AoCInput) (*common.AoCSolution, error) {
 	i, err := input.Read()
 	if err != nil {
-		return output, err
+		return nil, err
 	}
+	output := common.NewSolution(input, "")
 	for a, input1 := range i {
 		x, _ := strconv.Atoi(input1)
 		for b, input2 := range i {

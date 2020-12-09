@@ -14,11 +14,11 @@ type Puzzle9 struct {
 
 }
 
-func (p Puzzle9) Part1(input common.AoCInput, output *common.AoCSolution) (*common.AoCSolution, error) {
+func (p Puzzle9) Part1(input common.AoCInput) (*common.AoCSolution, error) {
 	lines, err := input.Read()
 	if err != nil {
 		spew.Dump(lines)
-		return output, err
+		return nil, err
 	}
 	var ints []int
 	for _, i := range lines {
@@ -35,7 +35,6 @@ func (p Puzzle9) Part1(input common.AoCInput, output *common.AoCSolution) (*comm
 		for y := x - 25; y < x; y++ {
 			for z := x - 25; z < x; z++ {
 				if ints[y] + ints[z] == i {
-					// fmt.Printf("%v + %v = %v \n", ints[y], ints[x], i)
 					continue MainLoop
 				}
 			}
@@ -44,16 +43,18 @@ func (p Puzzle9) Part1(input common.AoCInput, output *common.AoCSolution) (*comm
 		broken = i
 		break
 	}
-	output.Text = fmt.Sprintf("%v is the first broken number", broken)
+
+	output := common.NewSolution(input, fmt.Sprintf("%v is the first broken number", broken))
 	return output, nil
 }
 
-func (p Puzzle9) Part2(input common.AoCInput, output *common.AoCSolution) (*common.AoCSolution, error) {
+func (p Puzzle9) Part2(input common.AoCInput) (*common.AoCSolution, error) {
 	lines, err := input.Read()
 	if err != nil {
 		spew.Dump(lines)
-		return output, err
+		return nil, err
 	}
+	// goal, _ := p.Part1(input, output)
 	sumTo := 26134589 // Answer from part 1
 	var ints []int
 	for _, i := range lines {
@@ -89,6 +90,6 @@ func (p Puzzle9) Part2(input common.AoCInput, output *common.AoCSolution) (*comm
 			high = ints[x]
 		}
 	}
-	output.Text = fmt.Sprintf("%v is the sum of the highest and lowest values in the broken set", high + low)
+	output := common.NewSolution(input, fmt.Sprintf("%v is the sum of the highest and lowest values in the broken set", high + low))
 	return output, nil
 }

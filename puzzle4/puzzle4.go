@@ -129,12 +129,13 @@ func (p Puzzle4) ParsePassports(input []string) []Passport {
 	return ret
 }
 
-func (p Puzzle4) Part1(input common.AoCInput, output *common.AoCSolution) (*common.AoCSolution, error) {
+func (p Puzzle4) Part1(input common.AoCInput) (*common.AoCSolution, error) {
 	i, err := input.Read()
 	if err != nil {
 		spew.Dump(i)
-		return output, err
+		return nil, err
 	}
+	output := common.NewSolution(input, "")
 	passports := p.ParsePassports(i)
 	count := 0
 	for _, passport := range passports {
@@ -146,12 +147,13 @@ func (p Puzzle4) Part1(input common.AoCInput, output *common.AoCSolution) (*comm
 	return output, nil
 }
 
-func (p Puzzle4) Part2(input common.AoCInput, output *common.AoCSolution) (*common.AoCSolution, error) {
+func (p Puzzle4) Part2(input common.AoCInput) (*common.AoCSolution, error) {
 	i, err := input.Read()
 	if err != nil {
 		spew.Dump(i)
-		return output, err
+		return nil, err
 	}
+	output := common.NewSolution(input, "")
 
 	passports := p.ParsePassports(i)
 	count := 0
