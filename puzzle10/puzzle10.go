@@ -18,15 +18,11 @@ type Puzzle10 struct {
 type Adaptor struct {
 	Value int
 	NextAdaptors []*Adaptor
-	IsEnd bool
 	CachedCount int
 }
 
 func (a *Adaptor) CountWaysToEnd() int {
-	if a.IsEnd {
-		return 1
-	}
-	if a.CachedCount > 0{
+	if a.CachedCount > 0 {
 		return a.CachedCount
 	}
 	ret := 0
@@ -98,7 +94,7 @@ func (p Puzzle10) Part2(input common.AoCInput) (*common.AoCSolution, error) {
 		}
 		adaptors = append(adaptors, &adaptor)
 	}
-	adaptors = append(adaptors, &Adaptor{Value: max + 3, IsEnd: true})
+	adaptors = append(adaptors, &Adaptor{Value: max + 3, CachedCount: 1})
 	for _, a := range adaptors {
 		a.FindNextAdaptors(adaptors)
 	}
